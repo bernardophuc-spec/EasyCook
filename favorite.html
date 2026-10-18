@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Món yêu thích - Easy Cook</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="asset/icon.jpg">
+    <link rel="stylesheet" href="css/favorite.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header-container">
+        <a href="index.html" class="brand">
+          <img src="asset/icon.jpg" alt="Logo" />
+
+          <span> Easy Cook </span>
+        </a>
+
+        <nav class="nav">
+          <a href="index.html" class="nav-link"> Trang chủ </a>
+
+          <a href="about.html" class="nav-link"> Giới thiệu </a>
+
+          <a href="favorite.html" class="nav-link active">
+            Yêu thích
+          </a>
+        </nav>
+
+        <div class="user-area">
+          <button id="logout-btn" class="logout-btn">Đăng xuất</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="favorite-section">
+        <div class="favorite-header">
+          <div>
+            <p class="section-label">Easy Cook</p>
+
+            <h1>Món ăn yêu thích</h1>
+
+            <p>Những công thức bạn đã lưu.</p>
+          </div>
+        </div>
+
+        <div id="empty-favorite" class="empty-favorite">
+          <div class="empty-icon">♡</div>
+
+          <h2>Chưa có món yêu thích</h2>
+
+          <p>Hãy khám phá các công thức và lưu những món bạn yêu thích.</p>
+
+          <a href="index.html" class="explore-button">
+            Khám phá công thức
+          </a>
+        </div>
+
+        <div id="favorite-container" class="favorite-grid"></div>
+      </section>
+      <script>
+        (function () {
+          if (
+            !window.chatbase ||
+            window.chatbase("getState") !== "initialized"
+          ) {
+            window.chatbase = (...argument) => {
+              if (!window.chatbase.q) {
+                window.chatbase.q = [];
+              }
+              window.chatbase.q.push(arguments);
+            };
+            window.chatbase = new Proxy(window.chatbase, {
+              get(target, prop) {
+                if (prop === "q") {
+                  return target.q;
+                }
+                return (...args) => target(prop, ...args);
+              },
+            });
+          }
+          const onLoad = function () {
+            const script = document.createElement("script");
+            script.src = "https://www.chatbase.co/embed.min.js";
+            script.id = "5R6VJYraHkcKjs_cteOMJ";
+            script.domain = "www.chatbase.co";
+            document.body.appendChild(script);
+          };
+          if (document.readyState === "complete") {
+            onLoad();
+          } else {
+            window.addEventListener("load", onLoad);
+          }
+        })();
+      </script>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <img src="asset/icon.jpg" alt="Easy Cook Logo" />
+
+            <span> Easy Cook </span>
+          </a>
+
+          <p>Nấu ăn đơn giản.</p>
+
+          <p class="footer-description">
+            Khám phá những công thức nấu ăn hấp dẫn, dễ thực hiện và phù hợp với
+            mọi người.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h3>Khám phá</h3>
+
+          <a href="index.html"> Trang chủ </a>
+
+          <a href="about.html"> Giới thiệu </a>
+
+          <a href="favorite.html"> Yêu thích </a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Easy Cook</h3>
+
+          <a href="about.html"> Về chúng tôi </a>
+
+          <a href="favorite.html"> Món yêu thích </a>
+
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Easy Cook.</p>
+      </div>
+    </footer>
+
+    <script src="js/favorite.js"></script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+:root {
+  color-scheme: light;
+  --page-bg: #fffaf3;
+  --card-bg: #ffffff;
+  --text-color: #333333;
+  --border-color: #e5e5e5;
+  --input-bg: #ffffff;
+}
+
+body.dark-theme {
+  color-scheme: dark;
+  --page-bg: #181818;
+  --card-bg: #242424;
+  --text-color: #eeeeee;
+  --border-color: #444444;
+  --input-bg: #303030;
+
+  background-color: var(--page-bg) !important;
+  color: var(--text-color);
+}
+
+body.dark-theme header,
+body.dark-theme nav,
+body.dark-theme footer,
+body.dark-theme section,
+body.dark-theme .card,
+body.dark-theme .recipe-card,
+body.dark-theme .review-section,
+body.dark-theme .review-item {
+  color: var(--text-color);
+}
+
+body.dark-theme input,
+body.dark-theme textarea,
+body.dark-theme select {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+body.dark-theme a {
+  color: #ffbd80;
+}
+
+#themeToggle {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 9999;
+
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+
+  background: var(--card-bg);
+  color: var(--text-color);
+  font-size: 22px;
+  cursor: pointer;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+}
+
+#themeToggle:hover {
+  transform: scale(1.08);
+}
+
+#themeToggle:focus-visible {
+  outline: 3px solid #e67e22;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  #themeToggle {
+    left: 14px;
+    bottom: 14px;
+  }
+}

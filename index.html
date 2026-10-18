@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Easy Cook</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="asset/icon.jpg">
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header-container">
+        <a href="index.html" class="brand">
+          <img src="asset/icon.jpg" alt="Logo" />
+
+          <span>Easy Cook</span>
+        </a>
+
+        <nav class="nav">
+          <a href="index.html" class="nav-link active"> Trang chủ </a>
+
+          <a href="about.html" class="nav-link"> Giới thiệu </a>
+
+          <a href="favorite.html" class="nav-link"> Yêu thích </a>
+        </nav>
+
+        <div class="user-area">
+          <button id="logout-btn" class="logout-btn">Đăng xuất</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <p class="hero-label">Tìm kiếm các công thức</p>
+
+          <h1>
+            Bạn sẽ<br />
+            muốn nấu thứ gì?
+          </h1>
+
+          <p class="hero-description">
+            Khám phá những công thức nấu ăn đa dạng
+          </p>
+
+          <form id="search-form" class="search-box">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Tìm công thức..."
+            />
+
+            <button type="submit">Tìm kiếm</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="categories" class="section">
+        <div class="section-header">
+          <div>
+            <p class="section-label">Khám phá</p>
+
+            <h2>Các loại món ăn</h2>
+          </div>
+        </div>
+
+        <div class="categories">
+          <button
+            class="category-card breakfast-card"
+            data-category="Breakfast"
+          >
+            <div class="category-overlay"></div>
+
+            <span class="category-name"> Bữa sáng </span>
+          </button>
+
+          <button class="category-card chicken-card" data-category="Chicken">
+            <div class="category-overlay"></div>
+
+            <span class="category-name"> Món gà </span>
+          </button>
+
+          <button class="category-card pasta-card" data-category="Pasta">
+            <div class="category-overlay"></div>
+
+            <span class="category-name"> Món pasta </span>
+          </button>
+
+          <button class="category-card dessert-card" data-category="Dessert">
+            <div class="category-overlay"></div>
+
+            <span class="category-name"> Tráng miệng </span>
+          </button>
+        </div>
+      </section>
+
+      <script>
+        (function () {
+          if (
+            !window.chatbase ||
+            window.chatbase("getState") !== "initialized"
+          ) {
+            window.chatbase = (...argument) => {
+              if (!window.chatbase.q) {
+                window.chatbase.q = [];
+              }
+              window.chatbase.q.push(arguments);
+            };
+            window.chatbase = new Proxy(window.chatbase, {
+              get(target, prop) {
+                if (prop === "q") {
+                  return target.q;
+                }
+                return (...args) => target(prop, ...args);
+              },
+            });
+          }
+          const onLoad = function () {
+            const script = document.createElement("script");
+            script.src = "https://www.chatbase.co/embed.min.js";
+            script.id = "5R6VJYraHkcKjs_cteOMJ";
+            script.domain = "www.chatbase.co";
+            document.body.appendChild(script);
+          };
+          if (document.readyState === "complete") {
+            onLoad();
+          } else {
+            window.addEventListener("load", onLoad);
+          }
+        })();
+      </script>
+
+      <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <img src="asset/icon.jpg" alt="Easy Cook Logo" />
+
+            <span> Easy Cook </span>
+          </a>
+
+          <p>Nấu ăn đơn giản.</p>
+
+          <p class="footer-description">
+            Khám phá những công thức nấu ăn hấp dẫn, dễ thực hiện và phù hợp với
+            mọi người.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h3>Khám phá</h3>
+
+          <a href="index.html"> Trang chủ </a>
+
+          <a href="about.html"> Giới thiệu </a>
+
+          <a href="favorite.html"> Yêu thích </a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Easy Cook</h3>
+
+          <a href="about.html"> Về chúng tôi </a>
+
+          <a href="favorite.html"> Món yêu thích </a>
+
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Easy Cook.</p>
+      </div>
+    </footer>
+
+    </main>
+    <script src="js/index.js"></script>
+  </body>
+</html>
